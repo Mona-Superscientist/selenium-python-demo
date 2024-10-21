@@ -7,3 +7,4 @@ webdriver_manager
 webdriver-manager
 python-dotenv~=1.0.1
 faker~=15.3.4
+

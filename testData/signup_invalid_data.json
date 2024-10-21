@@ -1,0 +1,12 @@
+ [
+     {
+          "email": "test@abc.eeq",
+          "password": "short",
+          "expected_error": "User validation failed: password: Path `password` (`short`) is shorter than the minimum allowed length (7)."
+      },
+      {
+          "email": "aa@hs",
+          "password": "2uo036397h2",
+          "expected_error": "User validation failed: email: Email is invalid"
+      }
+ ]

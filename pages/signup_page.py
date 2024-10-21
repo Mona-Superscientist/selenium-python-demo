@@ -15,12 +15,13 @@ class SignupPage(BasePage):
     locators = {
         'page_title': (By.TAG_NAME, 'h1'),
         'page_description': (By.TAG_NAME, 'p'),
-        'first_name_input': (By.ID, 'firstname'),
-        'last_name_input': (By.ID, 'lastname'),
+        'first_name_input': (By.ID, 'firstName'),
+        'last_name_input': (By.ID, 'lastName'),
         'email_input': (By.ID, 'email'),
         'password_input': (By.ID, 'password'),
         'submit_btn': (By.ID, 'submit'),
-        'cancel_btn': (By.ID, 'cancel')
+        'cancel_btn': (By.ID, 'cancel'),
+        'error_span': (By.ID, 'error')
     }
 
     # Actions
@@ -54,4 +55,14 @@ class SignupPage(BasePage):
             return False
 
     def is_current_url_equals(self, expected_url):
+        self.wait_for_url_to_change(self.driver.current_url)  # Wait for URL to change
+        print(f"current url is: {self.driver.current_url}")
+        print(f"expected url is: {expected_url}")
         return self.driver.current_url == expected_url
+    
+    def is_error_equals(self, expected_err):
+        self.wait_for_element_to_be_visible(*self.locators['error_span'])  # Wait for error span to be visible
+        print(f"actual err is: {self.driver.find_element(*self.locators['error_span']).text}")
+        print(f"expected  err ist: {expected_err}")
+        actual_error = self.driver.find_element(*self.locators['error_span']).text
+        return actual_error == expected_err
