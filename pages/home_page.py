@@ -8,8 +8,10 @@ base_url = load_env.base_url
 
 
 class HomePage(BasePage):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, driver):
+        # Pass the driver to the parent class (BasePage)
+        super().__init__(driver)
+        self.driver = driver
 
     # Elements
     locators = {

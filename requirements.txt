@@ -1,8 +1,6 @@
 selenium~=4.25.0
 pytest
-json
-csv
-pandas
+allure-pytest~=2.13.5
 webdriver_manager
 webdriver-manager
 python-dotenv~=1.0.1

@@ -8,8 +8,9 @@ base_url = load_env.base_url
 
 
 class SignupPage(BasePage):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.driver = driver
 
     # Elements
     locators = {
